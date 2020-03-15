@@ -9,29 +9,42 @@ const DialogItems = (props) => {
             <NavLink to={path}> {props.name} </NavLink>
         </div>
     )
-}
+};
 
-const Message = (props)=>{
-    return(
+const Message = (props) => {
+    return (
         <div className={b.message}> {props.message}</div>
     )
-}
+};
 
 const Dialogs = (props) => {
+
+    let dialogs = [
+        {id: 1, name: 'Olga'},
+        {id: 2, name: 'Anton'},
+        {id: 3, name: 'Vadim'},
+        {id: 4, name: 'Andrey'}
+    ];
+
+    let messages = [
+        {id: 1, message: 'HI'},
+        {id: 2, message: 'What you think about thi music?'},
+        {id: 3, message: 'bye-bye'}
+    ];
+    let dialogsElements = dialogs.map(d => <DialogItems name={d.name} id={d.id}/>);
+
+    let messagesElements = messages.map(m => <Message message={m.message}/>);
+
     return (
         <div className={b.dialogs}>
             <div className={b.dialogsItems}>
-                <DialogItems name='Olga' id="1"/>
-                <DialogItems name='Anton' id='2'/>
-                <DialogItems name='Vadim' id='3'/>
-                <DialogItems name='Andrey' id='4'/>
+                {dialogsElements}
             </div>
             <div className={b.messages}>
-                <Message message="HI"/>
-                <Message message="What you think about thi music?"/>
-                <Message message="bye-bye"/>
+                {messagesElements}
             </div>
         </div>
+
     )
-}
+};
 export default Dialogs;
