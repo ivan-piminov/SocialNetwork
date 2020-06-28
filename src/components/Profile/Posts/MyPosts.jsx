@@ -1,11 +1,10 @@
-import React, {createRef} from 'react';
+import React from 'react';
 import b from './MyPosts.module.css'
 import Post from "./Post/MyPost";
 import {reduxForm} from "redux-form";
 import {Field} from "redux-form/es";
 import {maxLengthCreator, required} from "../../../utils/validators";
 import {Textarea} from "../../Common/FormsControls/FormsControls";
-
 
 
 const MyPosts =React.memo( props => {
