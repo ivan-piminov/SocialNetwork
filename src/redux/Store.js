@@ -41,21 +41,6 @@ let store = {
         this._callSubscriber = observer;
     },
 
-    // addPost() {
-    //     let newPost = {
-    //         id: 4,
-    //         message: this._state.profilePage.newPostText,
-    //         likesCount: 0
-    //     };
-    //     this._state.profilePage.posts.push(newPost);
-    //     this._state.profilePage.newPostText = "";
-    //     this._callSubscriber(this._state);
-    // },
-    // updateNewPostText(newText) {
-    //     this._state.profilePage.newPostText = newText;
-    //     this._callSubscriber(this._state);
-    // },
-
     dispatch(action) {
         this._state.profilePage = profileReducer(this._state.profilePage, action)
         this._state.dialogsPage = dialogsReducer(this._state.dialogsPage, action)
@@ -66,7 +51,5 @@ let store = {
     }
 };
 
-
-
 window.state = store;
-export default store;
+// export default store;
