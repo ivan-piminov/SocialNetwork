@@ -1,3 +1,11 @@
 .selectedPage{
     font-weight: bold;
 }
+.pageNumber{
+    padding: 2px;
+    border: 1px solid black;
+}
+.pageNumber.selectPage {
+    font-weight: bold;
+    border-color: black;
+}
