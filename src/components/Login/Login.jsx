@@ -8,12 +8,12 @@ import {Redirect} from "react-router-dom";
 import b from "../Common/FormsControls/FormsControls.module.css"
 
 
-const LoginForm = ({handleSubmit,error}) => {
+const LoginForm = ({handleSubmit, error}) => {
     return (
         <form onSubmit={handleSubmit}>
-            {createField('Email','email',[required],Input)}
-            {createField('Password','password',[required],Input,{type:'password'})}
-            {createField(null,'rememberMe',[],Input,{type:'checkbox'}, 'remember me')}
+            {createField('Email', 'email', [required], Input)}
+            {createField('Password', 'password', [required], Input, {type: 'password'})}
+            {createField(null, 'rememberMe', [], Input, {type: 'checkbox'}, 'remember me')}
             {error && <div className={b.formSummaryError}>
                 {error}
             </div>}
@@ -40,5 +40,5 @@ const Login = (props) => {
     </div>
 };
 const mapStateToProps = (state) => (
-    {isAuth: state.auth.isAuth})
+    {isAuth: state.auth.isAuth});
 export default connect(mapStateToProps, {login})(Login)

@@ -2,57 +2,60 @@ import * as axios from "axios";
 
 const instance = axios.create({
     withCredentials: true,
-    baseURL:'https://social-network.samuraijs.com/api/1.0',
+    baseURL: 'https://social-network.samuraijs.com/api/1.0',
     headers: {
         "API-KEY": "de397352-5e3e-4a18-9ed2-383661a8969f"
     }
 
 });
 
-export const usersAPI={
-    getUsers (currentPage = 1, pageSize = 10)  {
+export const usersAPI = {
+    getUsers(currentPage = 1, pageSize = 10) {
         return instance.get(`users?page=${currentPage}&count=${pageSize}`,
             {withCredentials: true})
             .then(response => response.data)
     },
-    follow (userId){
-        return  instance.post(`/follow/${userId}`)
+    follow(userId) {
+        return instance.post(`/follow/${userId}`)
 
     },
-    unfollow (userId){
+    unfollow(userId) {
         return instance.delete(`/follow/${userId}`)
 
     },
-    getProfile(userId){
+    getProfile(userId) {
         return profileAPI.getProfile(userId)
     }
 };
-export const profileAPI={
-    getProfile(userId){
+export const profileAPI = {
+    getProfile(userId) {
         return instance.get(`/profile/${userId}`)
     },
-    getStatus (userId) {
+    getStatus(userId) {
         return instance.get(`/profile/status/${userId}`)
     },
-    updateStatus (status) {
-        return instance.put(`/profile/status`,{status:status})
+    updateStatus(status) {
+        return instance.put(`/profile/status`, {status: status})
     },
-    savePhoto (photoFile){
-        const formData= new FormData();
-        formData.append('image',photoFile)
-        return instance.put(`/profile/photo`,formData,{
+    savePhoto(photoFile) {
+        const formData = new FormData();
+        formData.append('image', photoFile);
+        return instance.put(`/profile/photo`, formData, {
             "Content-Type": "multipart*form-data"
         })
+    },
+    saveProfile(profile) {
+        return instance.put(`/profile`, profile)
     }
 };
-export const authAPI={
-    me () {
+export const authAPI = {
+    me() {
         return instance.get(`/auth/me`)
     },
-    login (email,password,rememberMe=false) {
-        return instance.post(`/auth/login`,{email,password,rememberMe})
+    login(email, password, rememberMe = false) {
+        return instance.post(`/auth/login`, {email, password, rememberMe})
     },
-    logout () {
+    logout() {
         return instance.delete(`/auth/login`)
     }
 };
