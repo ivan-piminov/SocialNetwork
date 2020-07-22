@@ -1,5 +1,6 @@
 import {profileAPI, usersAPI} from "../API/api";
 import {stopSubmit} from "redux-form";
+import profileMessagesPhoto from'../assets/images/forProfileMessages.jpg'
 
 const ADD_POST = "socialNetwork/profile/AD-POST";
 const SET_USER_PROFILE = "socialNetwork/profile/SET_USER_PROFILE";
@@ -9,9 +10,9 @@ const SAVE_PHOTO_SUCCESS = "socialNetwork/profile/SAVE_PHOTO_SUCCESS";
 
 let initialState = {
     posts: [
-        {id: 1, message: 'Hello! How are you?', likesCount: 20},
-        {id: 2, message: 'Nice day', likesCount: 0},
-        {id: 3, message: 'Go watch football!', likesCount: 15}
+        {id: 1, message: 'Hello! How are you?', likesCount: 20, avatar: profileMessagesPhoto},
+        {id: 2, message: 'Nice day', likesCount: 0, avatar: profileMessagesPhoto},
+        {id: 3, message: 'Go watch football!', likesCount: 15, avatar: profileMessagesPhoto}
     ],
     profile: null,
     status: ''
@@ -23,9 +24,10 @@ const profileReducer = (state = initialState, action) => {
             let newPost = {
                 id: 4,
                 message: action.newPostText,
-                likesCount: 0
+                likesCount: 0,
+                avatar: profileMessagesPhoto
             };
-            return {...state, posts: [...state.posts, newPost], newPostText: ""};
+            return {...state, posts: [newPost,...state.posts], newPostText: ""};
         }
         case SET_USER_PROFILE: {
             return {...state, profile: action.profile};

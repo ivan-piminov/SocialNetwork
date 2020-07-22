@@ -37,7 +37,6 @@ class App extends React.Component {
                     <Route path="/Profile/:userId?" render={withSuspense(ProfileContainer)}/>
                     <Route path="/Users" render={() => <UsersContainer/>}/>
                     <Route path="/login" render={() => <LoginPage/>}/>
-                    <Route path="*" render={() => <div> 404 NOT FOUND</div>}/>
                 </div>
             </div>
         );

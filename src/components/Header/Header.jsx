@@ -1,15 +1,15 @@
 import React from 'react';
 import b from './Header.module.css'
 import {NavLink} from "react-router-dom";
+import logo from '../../assets/images/logo_orange_discord_icon_134355.svg'
 const Header = (props) => {
     return (
         <header className={b.header}>
-            <img
-                src='https://i.pinimg.com/736x/b5/8b/15/b58b15a4c3743b2ba76af65bca4df9b0--pumpkin-template-logo-sport.jpg'/>
+            <img alt={'logo'} src={logo}/>
                 <div className={b.loginBlock}>
                     {props.isAuth
-                        ? <div>{props.login} - <button onClick={props.logout}>Log out</button></div>
-                        :<NavLink to={'/login'}>Login </NavLink>}
+                        ? <div className={b.nickName}>{props.login} - <button className={b.logButtton} onClick={props.logout}>Log out</button></div>
+                        :<NavLink to={'/login'}><button className={b.logButtton}>Login</button> </NavLink>}
                 </div>
         </header>
     )

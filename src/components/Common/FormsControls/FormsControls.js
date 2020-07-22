@@ -17,11 +17,11 @@ export const FormControl = ({input,meta:{touched,error},children})=>{
 
 export const Textarea = (props)=>{
     const {input,meta,child,...restProps}=props;
-    return <FormControl {...props}> <textarea {...input} {...restProps}/></FormControl>
+    return <FormControl {...props}> <textarea className={b.textAreaStyle} {...input} {...restProps}/></FormControl>
 };
 export const Input = (props)=>{
     const {input,meta,child,...restProps}=props;
-    return <FormControl {...props}> <input {...input} {...restProps}/></FormControl>
+    return <FormControl {...props}> <input className={b.inputStyle} {...input} {...restProps}/></FormControl>
 };
 
 export const createField =(placeholder, name,validators,component, props={}, text="")=>(

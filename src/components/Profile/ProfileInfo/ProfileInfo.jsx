@@ -4,8 +4,11 @@ import Preloader from "../../Common/Preloader/Preloader";
 import ProfileStatusWithHooks from "../../ProfileStatus/ProfileStatusWithHooks";
 import userPhoto from "../../../assets/images/user.png";
 import ProfileDataForm from "./ProfileDataForm";
+import headerPhoto from '../../../assets/images/Фон.jpg'
 
 const ProfileInfo = ({profile, status, updateStatus, isOwner, savePhoto, saveProfile}) => {
+
+    const [isHiddenChangePhoto,setChangePhotoInput]= useState(true);
 
     const [editMode, setEditMode] = useState(false);
 
@@ -15,6 +18,7 @@ const ProfileInfo = ({profile, status, updateStatus, isOwner, savePhoto, savePro
     const onMainPhotoSelected = (e) => {
         if (e.target.files.length) {
             savePhoto(e.target.files[0])
+            setChangePhotoInput(true)
         }
     };
 
@@ -28,15 +32,20 @@ const ProfileInfo = ({profile, status, updateStatus, isOwner, savePhoto, savePro
     return (
         <div>
             <div>
-                {/*<img src='https://avatars.mds.yandex.net/get-pdb/2834182/818e6d4d-3877-46a5-b635-97559c0f37e0/s1200?webp=false'/>*/}
-                <img src={profile.photos.large || userPhoto} className={b.mainPhoto}/>
-                {isOwner && <input type={'file'} onChange={onMainPhotoSelected}/>}
+                <div>
+                    <img alt='headerImg' src={headerPhoto} className={b.themePhoto}/>
+                </div>
+                <img alt='profileImg' src={profile.photos.large || userPhoto} className={b.mainPhoto}/>
+
+                <div><button className={b.profDataFormButton} onClick={()=>setChangePhotoInput(false)}>change photo</button></div>
+
+                {isOwner && isHiddenChangePhoto===false && <input type={'file'} onChange={onMainPhotoSelected}/>}
+                <ProfileStatusWithHooks status={status} updateStatus={updateStatus}/>
 
                 {editMode
                     ? <ProfileDataForm initialValues={profile} profile={profile} onSubmit={onSubmit}/>
-                    : <ProfileData profile={profile} isOwner={isOwner} goToEditMode={() => setEditMode(true)}/>}
+                    : <ProfileData profile={profile} isOwner={isOwner} goToEditMode={() => setEditMode(true)} className={b.profileData}/>}
 
-                <ProfileStatusWithHooks status={status} updateStatus={updateStatus}/>
             </div>
         </div>
     )
@@ -44,11 +53,7 @@ const ProfileInfo = ({profile, status, updateStatus, isOwner, savePhoto, savePro
 
 const ProfileData = ({profile, isOwner, goToEditMode}) => {
     return (
-        <>
-            {isOwner && <div>
-                <button onClick={goToEditMode}>edit</button>
-            </div>}
-
+        <div className={b.profileData}>
             <div className={b.descriptionBlock}>
                 <div>
                     <b>Full name: </b>{profile.fullName}
@@ -70,7 +75,10 @@ const ProfileData = ({profile, isOwner, goToEditMode}) => {
                 )}
                 </div>
             </div>
-        </>
+            {isOwner && <div>
+                <button className={b.profDataFormButton} onClick={goToEditMode}>edit profile</button>
+            </div>}
+        </div>
     )
 
 };

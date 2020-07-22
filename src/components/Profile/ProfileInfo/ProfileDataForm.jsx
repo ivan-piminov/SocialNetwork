@@ -6,10 +6,7 @@ import {reduxForm} from "redux-form";
 
 const ProfileDataForm = ({handleSubmit, profile, error}) => {
     return (
-        <form onSubmit={handleSubmit}>
-            <div>
-                <button>save</button>
-            </div>
+        <form onSubmit={handleSubmit} className={b.profileData}>
             {error && <div className={b.formSummaryError}>
                 {error}
             </div>}
@@ -37,6 +34,9 @@ const ProfileDataForm = ({handleSubmit, profile, error}) => {
                     }
                 )}
                 </div>
+            </div>
+            <div>
+                <button className={b.profDataFormButton}>save</button>
             </div>
         </form>
     )
