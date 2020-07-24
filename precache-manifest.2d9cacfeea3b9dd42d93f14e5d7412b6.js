@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "490398278de6a9ea743071773ae4a52f",
+    "revision": "70caaef422152cc5bf4c91b3f231b144",
     "url": "/SocialNetwork/index.html"
   },
   {
@@ -12,7 +12,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/SocialNetwork/static/css/4.3af7ca71.chunk.css"
   },
   {
-    "revision": "12612870760cfa7760d7",
+    "revision": "75cd84b6acb0388e91c2",
     "url": "/SocialNetwork/static/css/main.accac53d.chunk.css"
   },
   {
@@ -32,8 +32,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/SocialNetwork/static/js/4.39fd7d87.chunk.js"
   },
   {
-    "revision": "12612870760cfa7760d7",
-    "url": "/SocialNetwork/static/js/main.5b92c94d.chunk.js"
+    "revision": "75cd84b6acb0388e91c2",
+    "url": "/SocialNetwork/static/js/main.40049c0a.chunk.js"
   },
   {
     "revision": "6b8a16f823796d414422",
@@ -48,8 +48,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/SocialNetwork/static/media/forProfileMessages.76dd0803.jpg"
   },
   {
-    "revision": "4a3d829370cfde1c2fb254a64dc4fdd9",
-    "url": "/SocialNetwork/static/media/logo_orange_discord_icon_134355.4a3d8293.svg"
+    "revision": "750bcee61fe87c5fc5dec005db7952b9",
+    "url": "/SocialNetwork/static/media/logo_orange_discord_icon_134355.750bcee6.svg"
   },
   {
     "revision": "e85bcdcf5abbc866189074e80fc56dd2",
