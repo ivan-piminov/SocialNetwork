@@ -1,36 +1,33 @@
-import React from "react";
+import React, {useEffect} from "react";
 import b from './Dialogs.module.css'
 import DialogItem from "./DialogItem/DialogItem";
 import Message from "./Message/Message";
 import {Redirect} from "react-router-dom";
-import {Field, reduxForm} from "redux-form";
-import {Textarea} from "../Common/FormsControls/FormsControls";
-import {maxLengthCreator, required} from "../../utils/validators";
-import AddMessageForm, {AddMessageFormRedux} from "./AddMessageForm/AddMessageForm";
+import AddMessageForm from "./AddMessageForm/AddMessageForm";
+import {useDispatch} from "react-redux";
+import {getDialogs} from "../../redux/dialogs-reducer";
 
 const Dialogs = (props) => {
 
+    // const dispatch = useDispatch();
+
+    // useEffect(()=>{
+    //     dispatch(getDialogs())
+    // },[]);
+
+
     let state = props.dialogsPage;
 
-    let dialogsElements = state.dialogs.map(d => <DialogItem name={d.name} id={d.id}/>);
-    let messagesElements = state.messages.map(m => <Message message={m.message}/>);
-    let newMessageBody = state.newMessageBody;
+    let dialogsElements = state.dialogs.map(d => <DialogItem  key={d.id} name={d.name} id={d.id}/>);
+    let messagesElements = state.messages.map(m => <Message message={m.message} key={m.id}/>);
 
 
-    // let onSendMessageClick = () => {
-    //     props.sendMessage();
-    // };
     let addNewMessage = (values) => {
         props.sendMessage(values.newMessageBody);
     };
 
-    // let onNewMessageChange = (e) => {
-    //     let body = e.target.value;
-    //     props.updateNewMessageBody(body);
-    // };
 
     if (!props.isAuth) return <Redirect to={"/login"}/>;
-
     return (
         <div className={b.dialogs}>
             <div className={b.dialogsItems}>
@@ -41,7 +38,6 @@ const Dialogs = (props) => {
             </div>
             <AddMessageForm onSubmit={addNewMessage}/>
         </div>
-
     )
 };
 export default Dialogs;

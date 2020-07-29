@@ -11,6 +11,6 @@ const DialogItem = (props) => {
     )
 };
 
-export default DialogItem;
 
+export default DialogItem;
 

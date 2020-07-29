@@ -1,10 +1,11 @@
 import * as axios from "axios";
+import User from "../components/Users/User";
 
 const instance = axios.create({
     withCredentials: true,
     baseURL: 'https://social-network.samuraijs.com/api/1.0',
     headers: {
-        "API-KEY": "81fab503-698d-43e8-af57-37f0fdd7ac88"
+        "API-KEY": "e6c1df8c-20e4-45d3-b9aa-b0d816f72c5c"
     }
 });
 
@@ -63,6 +64,22 @@ export const securityAPI = {
         return instance.get(`security/get-captcha-url`)
     }
 };
+// export const dialogsAPI = {
+//     getDialogs() {
+//         return instance.get(`dialogs`)
+//             .then(res=> res.data)
+//     },
+//     startDialog(UserId) {
+//         return instance.get(`dialogs/${UserId}`)
+//             .then(res=> res.data)
+//     },
+//     sendMessages(UserId, messageText='test message') {
+//         return instance.post(`dialogs/2/messages`,{
+//             body:messageText
+//         })
+//             .then(res=> res.data)
+//     }
+// };
 
 
 

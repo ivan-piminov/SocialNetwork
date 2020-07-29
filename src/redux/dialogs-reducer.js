@@ -1,4 +1,7 @@
+import {dialogsAPI} from "../API/api";
+
 const SEND_MESSAGE = "socialNetwork/dialogs/SEND-MESSAGE";
+const GET_DIALOG_SUCCESS = "socialNetwork/dialogs/GET_DIALOG_SUCCESS";
 
 let initialState = {
     messages: [
@@ -12,6 +15,7 @@ let initialState = {
         {id: 3, name: 'Vadim'},
         {id: 4, name: 'Andrey'}
     ],
+    currentDialogId:null
 };
 
 const dialogsReducer = (state = initialState, action) => {
@@ -23,10 +27,23 @@ const dialogsReducer = (state = initialState, action) => {
                 ...state,
                 messages: [...state.messages, {id: 4, message: body}],
             };
+        // case GET_DIALOG_SUCCESS:
+        //             return {
+        //                 ...state,
+        //                ...action.payload,
+        //             };
         default:
             return state
     }
 };
 
 export const sendMessageCreator = (newMessageBody) => ({type: SEND_MESSAGE, newMessageBody});
+// export const getDialogsSuccess = (dialogs) => ({type: GET_DIALOG_SUCCESS, payload:{dialogs}});
+//
+// export const getDialogs=()=>(dispatch)=>{
+//     dialogsAPI.getDialogs().then(dialogs =>
+//     dispatch(getDialogsSuccess(dialogs)))
+// };
+
+
 export default dialogsReducer

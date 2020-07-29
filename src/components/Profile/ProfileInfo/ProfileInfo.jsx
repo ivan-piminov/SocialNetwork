@@ -37,10 +37,11 @@ const ProfileInfo = ({profile, status, updateStatus, isOwner, savePhoto, savePro
                 </div>
                 <img alt='profileImg' src={profile.photos.large || userPhoto} className={b.mainPhoto}/>
 
-                <div><button className={b.profDataFormButton} onClick={()=>setChangePhotoInput(false)}>change photo</button></div>
+                <div><button className={b.profDataFormButton} onBlur={()=>setChangePhotoInput(true)} onClick={()=>setChangePhotoInput(false)}>change photo</button></div>
 
                 {isOwner && isHiddenChangePhoto===false && <input type={'file'} onChange={onMainPhotoSelected}/>}
                 <ProfileStatusWithHooks status={status} updateStatus={updateStatus}/>
+
 
                 {editMode
                     ? <ProfileDataForm initialValues={profile} profile={profile} onSubmit={onSubmit}/>
