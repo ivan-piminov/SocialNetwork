@@ -36,12 +36,12 @@ class App extends React.Component {
                 <Navbar/>
                 <div className="app-wrapper-content">
                     <Redirect from="/" to="/profile"/>
-                    <Route path="/Profile/:userId?" render={withSuspense(SuspensedProfileContainer)}/>
-                    <Route path="/Users" render={() => <UsersContainer/>}/>
-                    <Route path="/Dialogs" render={withSuspense(SuspensedDialogsContainer)}/>
-                    <Route path="/News" render={()=><News/>}/>
-                    <Route path="/Music" render={()=><Music/>}/>
-                    <Route path="/Settings" render={()=><Settings/>}/>
+                    <Route path="/profile/:userId?" render={withSuspense(SuspensedProfileContainer)}/>
+                    <Route path="/users" render={() => <UsersContainer/>}/>
+                    <Route path="/dialogs" render={withSuspense(SuspensedDialogsContainer)}/>
+                    <Route path="/news" render={()=><News/>}/>
+                    <Route path="/music" render={()=><Music/>}/>
+                    <Route path="/settings" render={()=><Settings/>}/>
                     <Route path="/login" render={() => <LoginPage/>}/>
                 </div>
             </div>
