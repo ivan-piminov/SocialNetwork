@@ -35,7 +35,7 @@ class App extends React.Component {
                 <HeaderContainer/>
                 <Navbar/>
                 <div className="app-wrapper-content">
-                    <Redirect from="/" to="/profile"/>
+                    <Route exact path='/' render={() => <Redirect to={"/profile"}/>}/>
                     <Route path="/profile/:userId?" render={withSuspense(SuspensedProfileContainer)}/>
                     <Route path="/users" render={() => <UsersContainer/>}/>
                     <Route path="/dialogs" render={withSuspense(SuspensedDialogsContainer)}/>
